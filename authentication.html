@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+    <script src="https://statics.teams.cdn.office.net/sdk/v1.11.0/js/MicrosoftTeams.min.js"></script>
+    <script>
+        microsoftTeams.initialize();
+
+        // Function to handle successful authentication
+        function handleSuccess() {
+            // Send success message to parent window
+            microsoftTeams.authentication.notifySuccess();
+        }
+
+        // Function to handle failed authentication
+        function handleFailure() {
+            // Send failure message to parent window
+            microsoftTeams.authentication.notifyFailure('Authentication failed');
+        }
+    </script>
+</head>
+<body>
+    <h1>Authentication in progress...</h1>
+    <script>
+        // Call handleSuccess() or handleFailure() based on authentication result
+        if (authenticationSuccess) {
+            handleSuccess();
+        } else {
+            handleFailure();
+        }
+    </script>
+</body>
+</html>
